@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Calculadora.App">
+    <!--
+        Define o estilo global do app
+    -->
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#5172ad</Color>
+            <Color x:Key="Secondary">#fe942e</Color>
+            <Color x:Key="Terciary">#e4e8f1</Color>
+        </ResourceDictionary>        
+    </Application.Resources>
+</Application>

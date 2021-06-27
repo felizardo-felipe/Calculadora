@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Calculadora.Views.CalculadoraPage"
+    Title="Calculadora">
+
+    <ContentPage.Resources>
+        <Style x:Key="StyleBotaoPadrao" TargetType="Button">
+            <Setter Property="FontSize" Value="36" />
+        </Style>
+        <Style x:Key="StyleBotaoDigito" BasedOn="{StaticResource StyleBotaoPadrao}" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="TextColor" Value="{StaticResource Primary}" />
+        </Style>
+        <Style x:Key="StyleBotaoOperando" BasedOn="{StaticResource StyleBotaoPadrao}" TargetType="Button">
+            <Setter Property="FontSize" Value="36" />
+            <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+        <Style x:Key="StyleBotaoResultado" BasedOn="{StaticResource StyleBotaoPadrao}" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{StaticResource Secondary}" />
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+    </ContentPage.Resources>
+    <Grid RowSpacing="2" 
+          ColumnSpacing="2" 
+          BackgroundColor="{StaticResource Terciary}"
+          ColumnDefinitions="*,*,*,*"
+          RowDefinitions="auto,*,*,*,*,*"
+          VerticalOptions="FillAndExpand">
+
+        <StackLayout VerticalOptions="FillAndExpand"
+                     HeightRequest="250"
+                     Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4">
+            <Label TextColor="{StaticResource Primary}" FontSize="64" 
+                   HorizontalTextAlignment="End" VerticalOptions="StartAndExpand" VerticalTextAlignment="Center" 
+                   Text="{Binding Display}" />
+            <Label TextColor="{StaticResource Primary}" FontSize="36" 
+                   HorizontalTextAlignment="End" VerticalOptions="StartAndExpand" VerticalTextAlignment="Center" 
+                   Text="{Binding ExpressaoDisplay}" />
+        </StackLayout>
+        <Button Grid.Row="1" Grid.Column="0" Style="{StaticResource StyleBotaoDigito}" Text="%" Command="{Binding OperandoCommand}" CommandParameter="%" />
+        <Button Grid.Row="1" Grid.Column="1" Style="{StaticResource StyleBotaoDigito}" Text="(" Command="{Binding OperandoCommand}" CommandParameter="(" />
+        <Button Grid.Row="1" Grid.Column="2" Style="{StaticResource StyleBotaoDigito}" Text=")" Command="{Binding OperandoCommand}" CommandParameter=")" />
+        <Button Grid.Row="1" Grid.Column="3" Style="{StaticResource StyleBotaoOperando}" Text="/" Command="{Binding OperandoCommand}" CommandParameter="/" />
+        <Button Grid.Row="2" Grid.Column="0" Style="{StaticResource StyleBotaoDigito}" Text="7" Command="{Binding DigitoCommand}" CommandParameter="7" />
+        <Button Grid.Row="2" Grid.Column="1" Style="{StaticResource StyleBotaoDigito}" Text="8" Command="{Binding DigitoCommand}" CommandParameter="8" />
+        <Button Grid.Row="2" Grid.Column="2" Style="{StaticResource StyleBotaoDigito}" Text="9" Command="{Binding DigitoCommand}" CommandParameter="9" />
+        <Button Grid.Row="2" Grid.Column="3" Style="{StaticResource StyleBotaoOperando}" Text="*" Command="{Binding OperandoCommand}" CommandParameter="*" />
+        <Button Grid.Row="3" Grid.Column="0" Style="{StaticResource StyleBotaoDigito}" Text="4" Command="{Binding DigitoCommand}" CommandParameter="4" />
+        <Button Grid.Row="3" Grid.Column="1" Style="{StaticResource StyleBotaoDigito}" Text="5" Command="{Binding DigitoCommand}" CommandParameter="5" />
+        <Button Grid.Row="3" Grid.Column="2" Style="{StaticResource StyleBotaoDigito}" Text="6" Command="{Binding DigitoCommand}" CommandParameter="6" />
+        <Button Grid.Row="3" Grid.Column="3" Style="{StaticResource StyleBotaoOperando}" Text="-" Command="{Binding OperandoCommand}" CommandParameter="-" />
+        <Button Grid.Row="4" Grid.Column="0" Style="{StaticResource StyleBotaoDigito}" Text="1" Command="{Binding DigitoCommand}" CommandParameter="1" />
+        <Button Grid.Row="4" Grid.Column="1" Style="{StaticResource StyleBotaoDigito}" Text="2" Command="{Binding DigitoCommand}" CommandParameter="2" />
+        <Button Grid.Row="4" Grid.Column="2" Style="{StaticResource StyleBotaoDigito}" Text="3" Command="{Binding DigitoCommand}" CommandParameter="3" />
+        <Button Grid.Row="4" Grid.Column="3" Style="{StaticResource StyleBotaoOperando}" Text="+" Command="{Binding OperandoCommand}" CommandParameter="+" />
+        <Button Grid.Row="5" Grid.Column="0" Style="{StaticResource StyleBotaoDigito}" Text="0" Command="{Binding DigitoCommand}" CommandParameter="0" />
+        <Button Grid.Row="5" Grid.Column="1" Style="{StaticResource StyleBotaoDigito}" Text="." Command="{Binding DigitoCommand}" CommandParameter="." />
+        <Button Grid.Row="5" Grid.Column="2" Style="{StaticResource StyleBotaoDigito}" Text="C"  Command="{Binding CancelaCommand}" CommandParameter="c" />
+        <Button Grid.Row="5" Grid.Column="3" Style="{StaticResource StyleBotaoResultado}" Text="=" Command="{Binding TotalCommand}" CommandParameter="=" />
+    </Grid>
+</ContentPage>
